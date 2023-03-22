@@ -1,5 +1,11 @@
-* {
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
+.bg-deepviolet {
+  background-color: #1d000d;
+}
+
+.bg-violet {
+  background-color: #230312;
+}
+
+.text-lightwhite {
+  color: rgba(255, 255, 255, 0.92);
 }

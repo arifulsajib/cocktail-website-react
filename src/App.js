@@ -1,11 +1,21 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Header from "./Components/Header/Header";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./Pages/HomePage/HomePage";
+import CocktailPage from "./Pages/CocktailPage/CocktailPage";
 
 function App() {
   return (
-    <div className="container mt-2">
-      <h1 className="text-center">New Project</h1>
-    </div>
+    <>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/cocktails" element={<CocktailPage />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
