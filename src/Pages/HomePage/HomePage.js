@@ -1,10 +1,14 @@
 import React from "react";
+import HomeBanner from "../../Components/HomeBanner/HomeBanner";
 
 const HomePage = () => {
   return (
-    <div className="">
-      <h1>Homepage</h1>
-    </div>
+    <>
+      <HomeBanner></HomeBanner>
+
+      {/* featured Drinks */}
+      {/* featured Ingredents */}
+    </>
   );
 };
 
