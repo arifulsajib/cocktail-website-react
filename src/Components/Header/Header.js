@@ -19,7 +19,7 @@ const Header = () => {
                 Home
               </Nav.Link>
               <Nav.Link as={NavLink} to="/cocktails" className="text-white mx-2">
-                CockTails
+                All CockTails
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
