@@ -2,7 +2,6 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import bannerLeft from "../../Images/banner-left.png";
 import bannerRight from "../../Images/banner-right.png";
-import separator from "../../Images/separator.jpg";
 
 const HomeBanner = () => {
   return (
@@ -22,7 +21,6 @@ const HomeBanner = () => {
           <img src={bannerRight} alt="Banner Right" className="img-fluid" />
         </Col>
       </Row>
-      <img src={separator} alt="separator" className="w-100 mt-5" />
     </section>
   );
 };
