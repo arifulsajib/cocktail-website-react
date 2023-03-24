@@ -3,13 +3,14 @@ import "./Header.css";
 import logo from "../../Images/logo.png";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const Header = () => {
   return (
     <header>
-      <Navbar className="bg-deepviolet" expand="lg">
+      <Navbar className="bg-deepviolet position-sticky" expand="lg">
         <Container>
-          <Navbar.Brand href="#">
+          <Navbar.Brand as={HashLink} smooth to="/#banner">
             <img src={logo} alt="logo" width={220} />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="navbar-dark" />

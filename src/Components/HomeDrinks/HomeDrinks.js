@@ -20,7 +20,7 @@ const HomeDrinks = () => {
           {
             // loading
             loading ? (
-              <div className="d-flex justify-content-center align-items-center" style={{ minHeight: "400px" }}>
+              <div className="d-flex justify-content-center align-items-center w-100" style={{ minHeight: "400px" }}>
                 <Spinner animation="grow" variant="light" className="text-center" />
               </div>
             ) : (

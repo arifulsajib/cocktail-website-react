@@ -5,7 +5,7 @@ import bannerRight from "../../Images/banner-right.png";
 
 const HomeBanner = () => {
   return (
-    <section className="container my-4">
+    <section className="container my-4" id="banner">
       <Row>
         <Col xs="3" className="d-flex align-items-center">
           <img src={bannerLeft} alt="Banner left" className="img-fluid" />
