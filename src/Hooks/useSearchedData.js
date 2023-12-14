@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
-const useDrinksData = (url) => {
+const useSearchedData = (searchValue) => {
   const [drinks, setDrinks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [isError, setError] = useState(false);
 
   useEffect(() => {
     setLoading(true);
-    fetch(url)
+    fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + searchValue)
       .then((res) => res.json())
       .then((data) => {
         setDrinks(data.drinks);
@@ -18,9 +18,9 @@ const useDrinksData = (url) => {
         setError(true);
         setLoading(false);
       });
-  }, [url]);
+  }, [searchValue]);
 
   return { drinks, setDrinks, loading, isError };
 };
 
-export default useDrinksData;
+export default useSearchedData;

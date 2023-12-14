@@ -2,12 +2,13 @@ import React from "react";
 import { Card, Col, Row, Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import useDrinksData from "../../Hooks/useDrinksData";
+import Loading from "../Loading/Loading";
 
 const DynamicDrinkDetails = () => {
   const params = useParams();
   //   fetch product by productId
   const url = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${params.id}`;
-  const { drinks, loading } = useDrinksData(url);
+  const { drinks, loading, isError } = useDrinksData(url);
 
   // make ingredents array
   const ingredientsArray = [];
@@ -26,12 +27,13 @@ const DynamicDrinkDetails = () => {
   //unique key
   let key = 0;
 
+  // loading
   if (loading) {
-    return (
-      <div className="d-flex justify-content-center align-items-center" style={{ minHeight: "400px" }}>
-        <Spinner animation="grow" variant="light" className="text-center" />
-      </div>
-    );
+    return <Loading></Loading>;
+  }
+  // Api Error
+  if (isError) {
+    return <p className="text-center text-danger">Can not load data: Api Load Failed</p>;
   }
 
   return (

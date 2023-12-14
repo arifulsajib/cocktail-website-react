@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Row } from "react-bootstrap";
 import DynamicDrink from "../../Components/DynamicDrink/DynamicDrink";
 import separator from "../../Images/separator.jpg";
+import useSearchedData from "../../Hooks/useSearchedData";
+import Loading from "../../Components/Loading/Loading";
 
 const CocktailPage = () => {
   const [searchValue, setSearchValue] = useState("m");
-  const [drinks, setDrinks] = useState([]);
-
-  useEffect(() => {
-    fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + searchValue)
-      .then((res) => res.json())
-      .then((data) => setDrinks(data.drinks));
-  }, [searchValue]);
+  const { drinks, loading, isError } = useSearchedData(searchValue);
 
   return (
     <section className="container my-4" style={{ minHeight: "90vh" }}>
@@ -24,7 +20,15 @@ const CocktailPage = () => {
 
       <Row xs={1} md={3} lg={4} className="g-4">
         {
-          //
+          // loading
+          loading && <Loading></Loading>
+        }
+        {
+          // Api Error
+          isError && <p className="text-center text-danger">Can not load data: Api Load Failed</p>
+        }
+        {
+          //Dynamic Data
           drinks.map((drink) => (
             <DynamicDrink key={drink.idDrink} drinkData={drink}></DynamicDrink>
           ))
