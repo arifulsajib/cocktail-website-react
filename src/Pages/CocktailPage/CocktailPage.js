@@ -15,7 +15,7 @@ const CocktailPage = () => {
         <input id="" type="text" className="mx-2 border-0 px-2 py-1 rounded" placeholder="Search Drink" onBlur={(e) => setSearchValue(e.target.value)} />
         <button className="btn btn-sm btn-light">Search</button>
       </div>
-      <h4 className="text-center mt-3"> Total Drinks Found: {drinks.length} </h4>
+      <h4 className="text-center mt-3"> Total Drinks Found: {drinks != null ? drinks.length : 0} </h4>
       <img src={separator} alt="separator" className="w-100" />
 
       <Row xs={1} md={3} lg={4} className="g-4">
@@ -29,9 +29,7 @@ const CocktailPage = () => {
         }
         {
           //Dynamic Data
-          drinks.map((drink) => (
-            <DynamicDrink key={drink.idDrink} drinkData={drink}></DynamicDrink>
-          ))
+          drinks != null && drinks.map((drink) => <DynamicDrink key={drink.idDrink} drinkData={drink}></DynamicDrink>)
         }
       </Row>
     </section>
